@@ -29,3 +29,35 @@ class peak(object) : # peak for s and g and delare polygon
         
         return '%d,%d,polygon : %s' %(x,y,str(th_poly))
 
+# create a class of n polygons
+class polygon(object) :
+    
+    def __init__(self, num_peaks, list_peaks) : 
+        self.num_polygons = num_polygons
+        self.list_peaks = list_peaks
+
+## drawing polygon with Opencv  
+def draw_poly(image,name,list_peaks):
+     # parameters needed
+     # in order to draw polygon I need coordinates of vertices
+     # make those points into an array of shape rows*1*1 where rows are number of vertices and it should be type int32.
+     # lets draw polygon from
+     # link to document https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_drawing_functions/py_drawing_functions.html
+     pts = np.array(list_peaks,np.int32)
+     pts = pts.reshape((-1*1*2)) # reshape array if it has one single vector
+     image = cv.polylines(image,[pts],True,(0,255,255)
+     # create p point under my consider
+     p = (list_speaks[-1][0],listpeaks[-1][2])
+     # draw string on image
+     org = (50,50)
+     font = cv2.FONT_HERSHEY_SIMPLEX
+     fontscale = 1
+     #blue color 
+     color = (255,0,0)
+     # tine thickness of 2 px
+     thickness = 2
+     cv2.puttext(image,"name",org,color,fornt,fontscale,p,thickness)
+     
+     return image
+     
+    
